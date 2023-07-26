@@ -31,7 +31,7 @@ class Main:
                     #we use the ascii table to determine if the byte is worth decoding or not
                     #32 - 126 is the alphabet and some symbols
                     if b >= 32 and b <= 126:
-                        print(chr(b), end=" ")
+                        print(chr(b), end="")
                     #if the byte isn't worth decoding we print a star
                     else:
                         print("*", end="")
@@ -39,5 +39,13 @@ class Main:
                 self.lines.clear()
                 #printing a new line
                 print("")
+        #printing the rest of the file
+        print(" "*((3*(16-len(self.lines))-1)), "#", end="")
+        for b in self.line:
+            if b >= 32 and b <= 126:
+                print(chr(b), end="")
+            else:
+                print("*", end="")
+
 #Running this mess
 Main().run()
